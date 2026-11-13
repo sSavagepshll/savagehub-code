@@ -2,13 +2,13 @@
 $CredencialServer = $null 
 
 function Execute-ERP-AppServer {
-    Invoke-Command -ComputerName [NOME_DO_SERVIDOR] -Credential $CredencialServer -ScriptBlock {& "[CAMINHO_DO_ERP]\bin\appserver\appserver.exe"}
+    Invoke-Command -ComputerName [NOME_DO_SERVIDOR] -Credential $CredencialServer -ScriptBlock {& "[CAMINHO_DO_ERP]\bin\[APP_SERVER_DIR]\[ERP_EXECUTABLE].exe"}
     Write-Host "Pressione Enter para ir para o proximo..." -ForegroundColor Green
     Read-host
 }
 
 function Execute-ERP-RestHTTP {
-    Invoke-Command -Computername [NOME_DO_SERVIDOR] -Credential $CredencialServer -ScriptBlock {& "[CAMINHO_DO_ERP]\bin\appserver_rest_http\appserver.exe"}
+    Invoke-Command -Computername [NOME_DO_SERVIDOR] -Credential $CredencialServer -ScriptBlock {& "[CAMINHO_DO_ERP]\bin\[REST_SERVER_DIR]\[ERP_EXECUTABLE].exe"}
     Write-Host "Pressione Enter para ir para o proximo..." -ForegroundColor Green
     Read-host
 }

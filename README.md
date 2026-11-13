@@ -4,8 +4,10 @@
 **Tipo de Projeto:** Automação de Infraestrutura e Gerenciamento Remoto  
 **Linguagem Principal:** PowerShell 7.x  
 
+> **Versão de portfólio.** Nomes de servidores, estações, serviços, caminhos e usuários foram substituídos por marcadores genéricos (ex.: `[NOME_DO_SERVIDOR]`, `WORKSTATION_01`). Nenhuma credencial é armazenada: as senhas são solicitadas em tempo de execução.
+
 ## 📌 O Problema
-Em um ambiente corporativo sem o suporte de ferramentas caras de RMM (Remote Monitoring and Management) ou um controlador de domínio (Active Directory) estruturado para envio de políticas de grupo (GPOs), a administração de dezenas de estações de trabalho e o monitoramento de serviços críticos de ERP tornam-se tarefas manuais, lentas e reativas. A equipe de TI precisava de uma forma centralizada e ágil para gerenciar máquinas locais e servidores sem interromper o fluxo de trabalho.
+Em um ambiente corporativo sem o suporte de ferramentas caras de RMM (Remote Monitoring and Management) ou um controlador de domínio (Active Directory) estruturado para envio de políticas de grupo (GPOs), a administração de diversas estações de trabalho e o monitoramento de serviços críticos de ERP tornam-se tarefas manuais, lentas e reativas. A equipe de TI precisava de uma forma centralizada e ágil para gerenciar máquinas locais e servidores sem interromper o fluxo de trabalho.
 
 ## 💡 A Solução
 Desenvolvimento do **Savage Hub**, uma aplicação modular de linha de comando (CLI) construída inteiramente em PowerShell 7. O sistema atua como um painel central de controle na máquina do administrador, utilizando WinRM (Windows Remote Management) para disparar comandos, monitorar instâncias e aplicar configurações em massa em estações de rede (Workgroup) e servidores.
@@ -20,7 +22,7 @@ Desenvolvimento do **Savage Hub**, uma aplicação modular de linha de comando (
 ## 🚀 Principais Módulos Desenvolvidos
 
 1.  **Monitoramento Ativo de Serviços Críticos (Daemon):**
-    *   Script em loop infinito que verifica o status de dezenas de serviços do ERP (AppServers, Bancos de Dados, WebServices) no servidor.
+    *   Script em loop infinito que verifica o status de vários serviços do ERP (AppServers, Bancos de Dados, WebServices) no servidor.
     *   Em caso de queda, o sistema registra um erro no Event Viewer local e dispara uma notificação visual (BalloonTip na bandeja do sistema) alertando a equipe instantaneamente.
 2.  **Acesso Remoto Interativo (Menu PSR):**
     *   Interface via terminal que lista todas as estações da empresa. Ao selecionar uma máquina, o Hub dispara uma nova janela isolada via `Enter-PSSession`, permitindo suporte via linha de comando invisível ao usuário final.

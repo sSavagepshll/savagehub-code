@@ -1,7 +1,7 @@
 # Inicio do Script
 
 function Stop-ERP-Service-01 {
-    $ComandoICM = "try { Invoke-Command -ComputerName [NOME_DO_SERVIDOR] -Credential (Get-Credential Administrator) -ScriptBlock { Stop-Service '[ERP_DBAccess]' -ErrorAction Stop } -ErrorAction Stop; Write-Host '`n[+] Serviço iniciado com sucesso!' -ForegroundColor Green; Start-Sleep -Seconds 2 } catch { Write-Host '`n[-] O SERVIDOR RETORNOU O SEGUINTE ERRO:' `$_.Exception.Message -ForegroundColor Red; Read-Host '`nPressione ENTER para fechar' }"
+    $ComandoICM = "try { Invoke-Command -ComputerName [NOME_DO_SERVIDOR] -Credential (Get-Credential Administrator) -ScriptBlock { Stop-Service '[ERP_DB_SERVICE]' -ErrorAction Stop } -ErrorAction Stop; Write-Host '`n[+] Serviço iniciado com sucesso!' -ForegroundColor Green; Start-Sleep -Seconds 2 } catch { Write-Host '`n[-] O SERVIDOR RETORNOU O SEGUINTE ERRO:' `$_.Exception.Message -ForegroundColor Red; Read-Host '`nPressione ENTER para fechar' }"
     Start-Process pwsh -ArgumentList "-NoProfile -Command `"$ComandoICM`""
 }
 
@@ -21,7 +21,7 @@ while ($true) {
     Write-Host "             Menu de Iniciar Serviços             " -ForegroundColor Green
     Write-Host "__________________________________________________" -ForegroundColor Green
     Write-Host "==================================================" -ForegroundColor Green
-    Write-Host " [  1 ] - ERP DBAccess                            " -ForegroundColor Green
+    Write-Host " [  1 ] - ERP Database Service                            " -ForegroundColor Green
     Write-Host " [  2 ] - ERP AppServer Master                    " -ForegroundColor Green
     Write-Host " [  3 ] - ERP RestHttp                            " -ForegroundColor Green
     Write-Host " [  0 ] - Voltar para o menu principal            " -ForegroundColor Red

@@ -13,11 +13,11 @@ $ServerName = "Server"
 
 # Lista dos serviços a monitorar genéricos para o portfólio
 $ServiceList = @(
-    "[ERP_DBAccess]",
+    "[ERP_DB_SERVICE]",
     "[ERP_ServerMaster]",
     "[ERP_RestHttp]",
-    "[ERP_EAI]",
-    "[ERP_TSS]",
+    "[ERP_INTEGRATION_SERVICE]",
+    "[ERP_AUX_SERVICE]",
     "[ERP_AppServer_00]",
     "[ERP_AppServer_01]",
     "[ERP_AppServer_02]"
